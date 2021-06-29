@@ -1000,7 +1000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2788183211238908597}
   m_Layer: 0
-  m_Name: Bulldozer-Prefab
+  m_Name: Bulldozer-prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

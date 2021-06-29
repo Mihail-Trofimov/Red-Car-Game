@@ -16,8 +16,8 @@ public class EnemySpawner : MonoBehaviour
 
         //enabled = false;
 
-        index = Random.Range(0, _spawnPoint.Length);
-        Instantiate(_prefabBonus, _spawnPoint[index].position, _spawnPoint[index].rotation);
+        //index = Random.Range(0, _spawnPoint.Length);
+        //Instantiate(_prefabBonus, _spawnPoint[index].position, _spawnPoint[index].rotation);
     }
 
     // Update is called once per frame
