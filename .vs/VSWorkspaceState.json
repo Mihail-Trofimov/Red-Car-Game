@@ -3,8 +3,10 @@
     "",
     "\\Assets",
     "\\Assets\\MyAsset",
-    "\\Assets\\MyAsset\\Scripts"
+    "\\Assets\\MyAsset\\Scripts",
+    "\\Assets\\VehicleSystemFree",
+    "\\Assets\\VehicleSystemFree\\Scripts",
+    "\\Assets\\VehicleSystemFree\\Scripts\\Editor"
   ],
-  "SelectedNode": "\\Assets\\MyAsset\\Scripts\\PlayerMovements.cs",
   "PreviewInSolutionExplorer": false
 }
