@@ -4,12 +4,38 @@ using UnityEngine;
 
 public class Heal : MonoBehaviour
 {
-    [SerializeField] private GameObject _heal;
-
-    void Update()
+    private Transform _body;
+    private GameObject _heal;
+    void Start()
     {
-
-        _heal.transform.Rotate(0, 2.0f, 0);
-
+        _heal = gameObject;
+        _body = _heal.transform.Find("Body").transform;
+    }
+    void FixedUpdate()
+    {
+        _body.transform.Rotate(0, 100.0f * Time.deltaTime, 0);
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            Debug.Log("HEAL PLAYER");
+            DestroyHeal();
+        }
+        else if (other.tag == "Enemy")
+        {
+            Debug.Log("HEAL ENEMY");
+            DestroyHeal();
+        }
+        else if (other.tag == "CannonBall")
+        {
+            Destroy(other.GetComponent<GameObject>());
+            DestroyHeal();
+        }
+    }
+    void DestroyHeal()
+    {
+        Destroy(_heal);
+        Destroy(this);
     }
 }

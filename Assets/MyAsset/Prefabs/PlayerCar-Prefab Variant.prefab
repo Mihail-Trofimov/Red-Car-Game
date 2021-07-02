@@ -51,9 +51,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2694192257634273522, guid: f12dd7c351efada43b6bb7896b56f89a, type: 3}
+      propertyPath: m_Center.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104367598605986573, guid: f12dd7c351efada43b6bb7896b56f89a, type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104367598605986573, guid: f12dd7c351efada43b6bb7896b56f89a, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104367598605986573, guid: f12dd7c351efada43b6bb7896b56f89a, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104367598605986573, guid: f12dd7c351efada43b6bb7896b56f89a, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104367598605986573, guid: f12dd7c351efada43b6bb7896b56f89a, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6958427225628089184, guid: f12dd7c351efada43b6bb7896b56f89a, type: 3}
       propertyPath: m_Name
-      value: PlayerCar Variant
+      value: PlayerCar-Prefab Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958427225628089184, guid: f12dd7c351efada43b6bb7896b56f89a, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f12dd7c351efada43b6bb7896b56f89a, type: 3}

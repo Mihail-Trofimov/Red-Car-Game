@@ -7,6 +7,10 @@ TagManager:
   - Level
   - Enemy
   - Ground
+  - Bonus
+  - CannonBall
+  - Pushpin
+  - Heal
   layers:
   - Default
   - TransparentFX
