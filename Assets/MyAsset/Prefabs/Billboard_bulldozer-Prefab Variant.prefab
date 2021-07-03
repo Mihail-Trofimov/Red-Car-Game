@@ -57,11 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3656298442523496920, guid: 54b9c4ae1b62e23478dfa7b2de0f5b95, type: 3}
       propertyPath: m_Name
-      value: Billboard-Prefab
+      value: Billboard_bulldozer-Prefab Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4123327907358232065, guid: 54b9c4ae1b62e23478dfa7b2de0f5b95, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: efef171b0975c4e488ae2b27498afab4, type: 2}
+      objectReference: {fileID: 2100000, guid: 51ea210dbbb35a94a8ff0b9deb33703e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54b9c4ae1b62e23478dfa7b2de0f5b95, type: 3}

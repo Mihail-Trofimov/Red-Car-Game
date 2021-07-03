@@ -28,7 +28,7 @@ public class Bonus : MonoBehaviour
         }
         else if (other.tag == "CannonBall")
         {
-            Destroy(other.GetComponent<GameObject>());
+            Destroy(other.gameObject);
             DestroyBonus();
         }
     }

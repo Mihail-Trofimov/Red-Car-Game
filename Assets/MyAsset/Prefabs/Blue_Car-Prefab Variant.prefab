@@ -129,7 +129,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7517f84a36b0db74e8c08ade9ae82b4b, type: 2}
     - target: {fileID: 6958427225628089184, guid: f12dd7c351efada43b6bb7896b56f89a, type: 3}
       propertyPath: m_Name
-      value: Blue_Car-Variant
+      value: Blue_Car-Prefab Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958427225628089184, guid: f12dd7c351efada43b6bb7896b56f89a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7218351880229509891, guid: f12dd7c351efada43b6bb7896b56f89a, type: 3}
       propertyPath: m_Materials.Array.data[0]

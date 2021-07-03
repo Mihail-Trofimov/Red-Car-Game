@@ -59,12 +59,13 @@
     <Compile Include="Assets\VehicleSystemFree\Scripts\VehicleFree.cs" />
     <Compile Include="Assets\MyAsset\Scripts\PlayerMovements.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Cannon.cs" />
+    <Compile Include="Assets\MyAsset\Scripts\Bonus.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Heal.cs" />
+    <Compile Include="Assets\MyAsset\Scripts\EasterCakes.cs" />
     <Compile Include="Assets\MyAsset\Scripts\EnemySpawner.cs" />
+    <Compile Include="Assets\MyAsset\Scripts\CannonBall.cs" />
     <Compile Include="Assets\VehicleSystemFree\Scenes\Script\DestroyObjectFree.cs" />
     <Compile Include="Assets\MyAsset\Scripts\SpawnBonus.cs" />
-    <Compile Include="Assets\MyAsset\Scripts\SpownBonus.cs" />
-    <Compile Include="Assets\MyAsset\Scripts\Bonus.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Pushpin.cs" />
   </ItemGroup>
   <ItemGroup>
