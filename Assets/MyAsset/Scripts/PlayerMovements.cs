@@ -44,7 +44,7 @@ public class PlayerMovements : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log("HP " + plHP + "\nnitro " + nitro);
+        //Debug.Log("HP " + plHP + "\nnitro " + nitro);
         whellCols[0].steerAngle = 30f * Input.GetAxis("Horizontal");
         whellCols[1].steerAngle = 30f * Input.GetAxis("Horizontal");
 
