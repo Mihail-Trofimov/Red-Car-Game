@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{9BF737EB-6741-D49A-7229-1DF3AE06C281}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -57,12 +56,12 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\MyAsset\Scripts\BlueCar.cs" />
     <Compile Include="Assets\VehicleSystemFree\Scripts\VehicleFree.cs" />
     <Compile Include="Assets\MyAsset\Scripts\PlayerMovements.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Cannon.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Bonus.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Heal.cs" />
+    <Compile Include="Assets\MyAsset\Scripts\BlueCar.cs" />
     <Compile Include="Assets\MyAsset\Scripts\EasterCakes.cs" />
     <Compile Include="Assets\MyAsset\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\MyAsset\Scripts\CannonBall.cs" />
@@ -679,6 +678,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="NavMeshComponentsEditor.csproj">
+      <Project>{C594979E-8880-4CD3-8B41-63BB903E4214}</Project>
+      <Name>NavMeshComponentsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponents.csproj">
+      <Project>{C4F04EE0-24DE-355A-C571-A87CF97F8980}</Project>
+      <Name>NavMeshComponents</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

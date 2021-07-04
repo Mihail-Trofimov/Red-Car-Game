@@ -11,11 +11,15 @@ NavMeshProjectSettings:
     cost: 1
   - name: Jump
     cost: 2
-  - name: Don'tGoHere
-    cost: 10
+  - name: 
+    cost: 1
   - name: Norm
     cost: 1
   - name: Castle
+    cost: 2
+  - name: Border
+    cost: 4
+  - name: Undesirable
     cost: 5
   - name: 
     cost: 1
@@ -33,12 +37,8 @@ NavMeshProjectSettings:
     cost: 1
   - name: 
     cost: 1
-  - name: 
-    cost: 1
-  - name: 
-    cost: 1
-  - name: 
-    cost: 1
+  - name: ConstructionSite
+    cost: 3
   - name: 
     cost: 1
   - name: 
@@ -73,10 +73,10 @@ NavMeshProjectSettings:
   m_Settings:
   - serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 4
-    agentHeight: 3
-    agentSlope: 35.9
-    agentClimb: 3
+    agentRadius: 1
+    agentHeight: 1.2
+    agentSlope: 60
+    agentClimb: 1.1
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2

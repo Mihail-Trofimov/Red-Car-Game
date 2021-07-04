@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4935240531098310}
   - component: {fileID: 33935909779426952}
   - component: {fileID: 23737651838244920}
-  - component: {fileID: 135134225773752490}
+  - component: {fileID: 1893031558569299402}
+  - component: {fileID: 8185364636097910503}
   m_Layer: 0
   m_Name: Soccer Ball
   m_TagString: Untagged
@@ -83,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &135134225773752490
-SphereCollider:
+--- !u!136 &1893031558569299402
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92,7 +93,24 @@ SphereCollider:
   m_GameObject: {fileID: 1975457108487340}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 0.1
+  m_Height: 0.3
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.005888498, z: 0}
+--- !u!208 &8185364636097910503
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975457108487340}
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.11000001
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.1, y: 0.11000001, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -0.08, z: 0}
+  m_TimeToStationary: 0.5

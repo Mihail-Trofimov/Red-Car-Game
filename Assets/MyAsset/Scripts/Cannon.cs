@@ -55,10 +55,9 @@ public class Cannon : MonoBehaviour
     {
         while (this != null)
         {
-            Debug.Log("1");
+            yield return new WaitForSeconds(2.0f);
             if (!isDeadZone && isSeeYou)
             {
-                yield return new WaitForSeconds(2.0f);
                 Debug.Log("SHOT");
                 disT = Vector3.Distance(transform.position, _player.position);
                 speedT = disT * 80f;
