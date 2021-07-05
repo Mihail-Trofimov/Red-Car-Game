@@ -55,10 +55,9 @@ public class Cannon : MonoBehaviour
     {
         while (this != null)
         {
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(5.0f);
             if (!isDeadZone && isSeeYou)
             {
-                Debug.Log("SHOT");
                 disT = Vector3.Distance(transform.position, _player.position);
                 speedT = disT * 80f;
                 agleT = AgleBalistic(disT, speedT);
