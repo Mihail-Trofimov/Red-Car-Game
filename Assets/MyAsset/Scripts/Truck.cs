@@ -12,15 +12,11 @@ public class Truck : MonoBehaviour
     private int currentWp;
 
 
-    // MOVEMENT
-    //Vector3 direction;
-
-
     void Start()
     {
         
         currentWp = 0;
-        _trackNav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        _trackNav = GetComponent<NavMeshAgent>();
         //_trackRb = GetComponent<Rigidbody>();
 
     }
