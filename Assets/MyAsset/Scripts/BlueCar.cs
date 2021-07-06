@@ -11,9 +11,10 @@ public class BlueCar : MonoBehaviour
     private Transform[] _loopWPS;
     private NavMeshAgent _enemy;
     private Rigidbody _rb;
-    private bool atack;
+    private bool stop;
     private int currentWP;
     private Vector3 _target;
+    private float _speed;
 
     void Start()
     {
@@ -23,15 +24,16 @@ public class BlueCar : MonoBehaviour
             _loopWPS[i] = _loopWPSObj.GetChild(i);
         }
         currentWP = 0;
-        atack = false;
+        stop = false;
         _enemy = GetComponent<NavMeshAgent>();
         _target = _loopWPS[currentWP].position;
         _rb = GetComponent<Rigidbody>();
+        _speed = 8f;
     }
 
     void FixedUpdate()
     {
-        if (Vector3.Distance(transform.position, _player.transform.position) >= 30f && !atack && !_enemy.hasPath)
+        if (Vector3.Distance(transform.position, _player.transform.position) >= 30f && !stop && !_enemy.hasPath)
         {
             _enemy.speed = 8f;
             currentWP += 1;
@@ -41,9 +43,9 @@ public class BlueCar : MonoBehaviour
             }
             _target = _loopWPS[currentWP].position;
         }
-        else if(Vector3.Distance(transform.position, _player.transform.position) < 30f && !atack)
+        else if(Vector3.Distance(transform.position, _player.transform.position) < 30f && !stop)
         {
-            _enemy.speed = 8f + 30f / Vector3.Distance(transform.position, _player.transform.position);
+            _enemy.speed = _speed + 30f / Vector3.Distance(transform.position, _player.transform.position);
             _target = _player.transform.position;
         }
         _enemy.SetDestination(_target);
@@ -51,33 +53,45 @@ public class BlueCar : MonoBehaviour
 
     IEnumerator AtackIE()
     {
-        atack = true;
-        yield return new WaitForSeconds(8f);
-        atack = false;
+        stop = true;
+        yield return new WaitForSeconds(7f);
+        stop = false;
         yield return null;
     }
     IEnumerator NitroIE()
     {
-        _enemy.speed += 20f;
+        _speed += 20f;
         yield return new WaitForSeconds(8f);
-        _enemy.speed -= 20f;
+        _speed -= 20f;
         yield return null;
     }
-
+    IEnumerator Trap()
+    {
+        stop = true;
+        _enemy.speed = 0f;
+        yield return new WaitForSeconds(6f);
+        stop = false;
+        yield return null;
+    }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            if (!atack)
+            if (!stop)
             {
                 _player.GetComponent<PlayerMovements>().plHP -= 1;
                 StartCoroutine(AtackIE());
             }
         }
-        if (other.tag == "Bonus")
+        else if (other.tag == "Bonus")
         {
             StartCoroutine(NitroIE());
+            Debug.Log("Enemy nitro");
+        }
+        else if (other.tag == "Pushpin")
+        {
+            StartCoroutine(Trap());
         }
     }
 }
