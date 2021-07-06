@@ -11,7 +11,7 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private Transform[] whellMeshs;
 
     private float nitro;
-    private int plHP;
+    public int plHP;
 
     private bool isNitroPressed;
     private bool isJumpPressed;
@@ -159,7 +159,10 @@ public class PlayerMovements : MonoBehaviour
         if (other.tag == "Enemy")
         {
             Debug.Log("Enemy atack player");
-            plHP -= 1;
+            //plHP -= 1;
+            _rb.GetComponent<Rigidbody>().AddForce(Vector3.up * 70f);
+            _rb.GetComponent<Rigidbody>().AddForce(Vector3.MoveTowards(transform.position, other.transform.position, 20f) * -100f);
+
             Debug.Log("HP " + plHP);
         }
         if (other.tag == "CannonBall")

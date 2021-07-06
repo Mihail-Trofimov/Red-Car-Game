@@ -9,29 +9,32 @@ public class ArcadeZone : MonoBehaviour
     [SerializeField] private Transform PointExit;
     [SerializeField] private GameObject PrefabBonus;
     [SerializeField] private Transform[] PointsBonus;
+    private Rigidbody _plRb;
 
     void Start()
     {
+        _plRb = Player.GetComponent<Rigidbody>();
         for (int i = 0; i < PointsBonus.Length; i++)
         {
             Instantiate(PrefabBonus, PointsBonus[i].position, PointsBonus[i].rotation);
         }
-        Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
-        Player.GetComponent<Rigidbody>().freezeRotation = true;
+        _plRb.constraints = RigidbodyConstraints.FreezePosition;
+        _plRb.freezeRotation = true;
         Player.transform.position = PointPlayer.position;
         Player.transform.rotation = PointPlayer.rotation;
-        Player.GetComponent<Rigidbody>().freezeRotation = false;
-        Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        _plRb.freezeRotation = false;
+        _plRb.constraints = RigidbodyConstraints.None;
     }
 
     void End()
     {
-        Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
-        Player.GetComponent<Rigidbody>().freezeRotation = true;
+        _plRb.constraints = RigidbodyConstraints.FreezePosition;
+        _plRb.freezeRotation = true;
         Player.transform.position = PointExit.position;
         Player.transform.rotation = PointExit.rotation;
-        Player.GetComponent<Rigidbody>().freezeRotation = false;
-        Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        _plRb.freezeRotation = false;
+        _plRb.constraints = RigidbodyConstraints.None;
+        _plRb.AddForce(Vector3.up * 100000f * Time.deltaTime);
         gameObject.SetActive(false);
     }
 

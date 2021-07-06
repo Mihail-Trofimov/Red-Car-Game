@@ -15,15 +15,9 @@ public class Bonus : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "Enemy")
         {
-            Debug.Log("BONUS Player");
-            DestroyBonus();
-        }
-        else if (other.tag == "Enemy")
-        {
-            Debug.Log("BONUS Enemy");
-            other.GetComponent<Rigidbody>().AddForce(Vector3.forward * 1000f);
+            //Debug.Log("BONUS Player");
             DestroyBonus();
         }
         else if (other.tag == "CannonBall")
@@ -31,6 +25,11 @@ public class Bonus : MonoBehaviour
             Destroy(other.gameObject);
             DestroyBonus();
         }
+        //else if (other.tag == "Enemy")
+        //{
+        //    Debug.Log("BONUS Enemy");
+        //    DestroyBonus();
+        //}
     }
     void DestroyBonus()
     {
