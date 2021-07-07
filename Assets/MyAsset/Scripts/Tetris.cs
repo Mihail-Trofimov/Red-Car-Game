@@ -32,7 +32,6 @@ public class Tetris : MonoBehaviour
             {
                 btnDown = true;
                 _btnObj.transform.localPosition = new Vector3(_btnObj.localPosition.x, _btnObj.localPosition.y + 1f * Time.deltaTime, _btnObj.localPosition.z);
-                //_btnObj.transform.position = new Vector3(_btnObj.position.x, _btnObj.position.y + 0.1f * Time.deltaTime, _btnObj.position.z);
             }
             else
             {

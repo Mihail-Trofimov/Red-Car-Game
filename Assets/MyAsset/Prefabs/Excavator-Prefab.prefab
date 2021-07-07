@@ -365,6 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5214367724583054374}
   - component: {fileID: 3730627716896905506}
+  - component: {fileID: 1508703259500128143}
   m_Layer: 0
   m_Name: Excavator-Prefab
   m_TagString: Untagged
@@ -403,6 +404,19 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 1, z: -0.4}
   m_TimeToStationary: 0.5
+--- !u!65 &1508703259500128143
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5214367724583054375}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 5, z: 3}
+  m_Center: {x: 5, y: 2, z: -5}
 --- !u!1 &5214367724674681188
 GameObject:
   m_ObjectHideFlags: 0
