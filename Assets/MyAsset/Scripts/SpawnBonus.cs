@@ -25,12 +25,7 @@ public class SpawnBonus : MonoBehaviour
         {
             Spawn();
         }
-    }
-    void Update()
-    {
-        //Будет задержка на UpdateList
-        UpdateList();
-
+        InvokeRepeating("UpdateList", 0f, 5f);
     }
     void Spawn()
     {
@@ -50,6 +45,7 @@ public class SpawnBonus : MonoBehaviour
     }
     void UpdateList()
     {
+        //Debug.Log("SpawnBonus UpdateList");
         Stack<GameObject> _delete = new Stack<GameObject>();
         foreach (KeyValuePair<GameObject, int> keyValue in _spawnObjects)
         {

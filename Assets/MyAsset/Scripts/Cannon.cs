@@ -53,6 +53,7 @@ public class Cannon : MonoBehaviour
     }
     IEnumerator Shot()
     {
+
         while (this != null)
         {
             yield return new WaitForSeconds(5.0f);

@@ -18,11 +18,7 @@ public class Tetris : MonoBehaviour
     }
     void Update()
     {
-        if(isPressed && !_sphere.activeSelf)
-        {
-            StartCoroutine(SphereActive());
-        }
-        else if (isPressed)
+        if (isPressed)
         {
             if ((_o - 0.2f) < _btnObj.localPosition.y && !btnDown)
             {
@@ -37,23 +33,15 @@ public class Tetris : MonoBehaviour
             {
                 btnDown = false;
                 isPressed = false;
+                _sphere.SetActive(true);
             }
         }
     }
-    IEnumerator SphereActive()
-    {
-        yield return new WaitForSeconds(0.8f);
-        _sphere.SetActive(true);
-        Debug.Log("SetActive");
-        yield return null;
-    }
-
-
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" && !isPressed)
         {
-            Debug.Log("Start press");
+            Debug.Log("Start tetris press");
             isPressed = true;
         }
     }

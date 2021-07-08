@@ -90,10 +90,7 @@ public class Mound : MonoBehaviour
     }
     IEnumerator LoadingIE(Collider other)
     {
-        while(!other.gameObject.GetComponent<Truck>().isUnloading)
-        {
-            yield return new WaitForSeconds(0.5f);
-        }
+        yield return new WaitWhile(() => !other.gameObject.GetComponent<Truck>().isUnloading);
         _heap.SetActive(true);
         _heap.transform.localScale = new Vector3(0f, 0f, 0f);
         _truckNMA.speed = 0f;
@@ -101,21 +98,13 @@ public class Mound : MonoBehaviour
         _dumpUp = true;
         _dumpDown = false;
         _pour = false;
-        while (_dumpUp)
-        {
-            yield return new WaitForSeconds(0.1f);
-        }
+        yield return new WaitWhile(() => _dumpUp);
         _pour = true;
-        while (_pour)
-        {
-            yield return new WaitForSeconds(0.1f);
-        }
+        yield return new WaitWhile(() => _pour);
         _dumpDown = true;
-        while (_dumpDown)
-        {
-            yield return new WaitForSeconds(0.1f);
-        }
+        yield return new WaitWhile(() => _dumpDown);
         _truckNMA.speed = 3.5f;
+        other.gameObject.GetComponent<Truck>().isUnloading = false;
         other.gameObject.GetComponent<Truck>().isLoaded = false;
         other.gameObject.GetComponent<Truck>()._sand.SetActive(false);
         yield return null;
