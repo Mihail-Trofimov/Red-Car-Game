@@ -29,7 +29,7 @@ public class Heal : MonoBehaviour
         }
         else if (other.tag == "CannonBall")
         {
-            Destroy(other.GetComponent<GameObject>());
+            Destroy(other.gameObject);
             DestroyHeal();
         }
     }

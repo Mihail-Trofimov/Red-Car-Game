@@ -11,6 +11,8 @@ TagManager:
   - CannonBall
   - Pushpin
   - Heal
+  - Wall
+  - Truck
   layers:
   - Default
   - TransparentFX

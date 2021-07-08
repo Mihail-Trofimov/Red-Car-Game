@@ -13,21 +13,20 @@ public class Pushpin : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Pushpin Player");
-            DestroyBonus();
+            DestroyPushpin();
         }
         else if (other.tag == "Enemy")
         {
             Debug.Log("Pushpin Enemy");
-            DestroyBonus();
+            DestroyPushpin();
         }
         else if (other.tag == "CannonBall")
         {
-            Destroy(other.GetComponent<GameObject>());
-            DestroyBonus();
+            Destroy(other.gameObject);
+            DestroyPushpin();
         }
     }
-    void DestroyBonus()
+    void DestroyPushpin()
     {
         Destroy(_pushpin);
         Destroy(this);
