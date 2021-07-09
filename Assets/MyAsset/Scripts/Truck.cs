@@ -76,7 +76,7 @@ public class Truck : MonoBehaviour
             {
                 _trackNav.speed = 3.5f;
                 _trackNav.SetDestination(_target[currentWp].position);
-                if (currentWp == 1)
+                if (currentWp == 1 && _target == _pathWPs)
                 {
                     if (_heap.activeSelf || !_notch1.activeSelf && !_notch2.activeSelf && !_notch3.activeSelf)
                     {
@@ -98,11 +98,16 @@ public class Truck : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "CannonBall" && !_heap.activeSelf)
+        if (other.tag == "CannonBall")
         {
-            if (_notch1.activeSelf || _notch2.activeSelf || _notch3.activeSelf)
+            Destroy(other.gameObject);
+            if (!_heap.activeSelf)
             {
-                _truckMove = true;
+                if (_notch1.activeSelf || _notch2.activeSelf || _notch3.activeSelf)
+                {
+                    _truckMove = true;
+
+                }
             }
         }
     }

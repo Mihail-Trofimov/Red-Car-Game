@@ -46,8 +46,8 @@ public class PlayerMovements : MonoBehaviour
         //Debug.Log("motorTorque " + whellCols[0].motorTorque + " nitro" + nitro);
         //Debug.Log("_rb.velocity.magnitude " + _rb.velocity.magnitude + " nitro" + nitro);
 
-        whellCols[0].steerAngle = 40f * Input.GetAxis("Horizontal");
-        whellCols[1].steerAngle = 40f * Input.GetAxis("Horizontal");
+        whellCols[0].steerAngle = 30f * Input.GetAxis("Horizontal");
+        whellCols[1].steerAngle = 30f * Input.GetAxis("Horizontal");
 
         whellMeshs[0].rotation = Quaternion.Euler(whellMeshs[2].rotation.eulerAngles.x, whellMeshs[2].rotation.eulerAngles.y, whellMeshs[2].rotation.eulerAngles.z - 30f * Input.GetAxis("Horizontal"));
         whellMeshs[1].rotation = Quaternion.Euler(whellMeshs[2].rotation.eulerAngles.x, whellMeshs[2].rotation.eulerAngles.y, whellMeshs[2].rotation.eulerAngles.z - 30f * Input.GetAxis("Horizontal"));
@@ -136,9 +136,8 @@ public class PlayerMovements : MonoBehaviour
         }
         if (other.tag == "CannonBall")
         {
-            Debug.Log("Cannon atack player");
+            Debug.Log("Cannon atack player HP " + plHP);
             plHP -= 1;
-            Debug.Log("HP " + plHP);
             Destroy(other.gameObject);
         } 
         //if (other.tag == "Level")
