@@ -61,6 +61,7 @@
     <Compile Include="Assets\MyAsset\Scripts\PlayerMovements.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Cannon.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Bonus.cs" />
+    <Compile Include="Assets\MyAsset\Scripts\Bulldozer.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Truck.cs" />
     <Compile Include="Assets\MyAsset\Scripts\ArcadeZone.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Heal.cs" />
@@ -74,7 +75,6 @@
     <Compile Include="Assets\MyAsset\Scripts\TetrisSphere.cs" />
     <Compile Include="Assets\MyAsset\Scripts\SpawnBonus.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Pushpin.cs" />
-    <Compile Include="Assets\MyAsset\Scripts\Bulldozer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

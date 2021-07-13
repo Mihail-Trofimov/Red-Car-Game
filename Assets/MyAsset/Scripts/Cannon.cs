@@ -67,7 +67,6 @@ public class Cannon : MonoBehaviour
             }
             yield return new WaitForSeconds(5.0f);
         }
-        yield return null;
     }
     public float AgleBalistic(float distance, float speedBullet)
     {
