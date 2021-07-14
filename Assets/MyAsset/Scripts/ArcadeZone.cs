@@ -9,6 +9,8 @@ public class ArcadeZone : MonoBehaviour
     [SerializeField] private Transform PointExit;
     [SerializeField] private GameObject PrefabBonus;
     [SerializeField] private Transform[] PointsBonus;
+    [SerializeField] private GameObject PrefabHeal;
+    [SerializeField] private Transform[] PointsHeal;
     private Rigidbody _plRb;
     Stack<GameObject> _bonus;
     void Start()
@@ -18,6 +20,11 @@ public class ArcadeZone : MonoBehaviour
         for (int i = 0; i < PointsBonus.Length; i++)
         {
             GameObject _obj = Instantiate(PrefabBonus, PointsBonus[i].position, PointsBonus[i].rotation);
+            _bonus.Push(_obj);
+        }
+        for (int i = 0; i < PointsHeal.Length; i++)
+        {
+            GameObject _obj = Instantiate(PrefabHeal, PointsHeal[i].position, PointsHeal[i].rotation);
             _bonus.Push(_obj);
         }
         _plRb.constraints = RigidbodyConstraints.FreezePosition;
