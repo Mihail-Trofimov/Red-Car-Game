@@ -45,6 +45,18 @@ public class PlayerMovements : MonoBehaviour
         {
             isNitroPressed = true;
         }
+        if (Input.GetMouseButtonDown(0))
+        {
+            beepDown = true;
+            if (!_beep)
+            {
+                StartCoroutine(BeepBeep());
+            }
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            beepDown = false;
+        }
     }
 
     void FixedUpdate()
@@ -59,19 +71,6 @@ public class PlayerMovements : MonoBehaviour
         whellMeshs[0].rotation = Quaternion.Euler(whellMeshs[2].rotation.eulerAngles.x, whellMeshs[2].rotation.eulerAngles.y, whellMeshs[2].rotation.eulerAngles.z - 30f * Input.GetAxis("Horizontal"));
         whellMeshs[1].rotation = Quaternion.Euler(whellMeshs[2].rotation.eulerAngles.x, whellMeshs[2].rotation.eulerAngles.y, whellMeshs[2].rotation.eulerAngles.z - 30f * Input.GetAxis("Horizontal"));
 
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            beepDown = true;
-            if (!_beep)
-            {
-                StartCoroutine(BeepBeep()); 
-            }
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            beepDown = false;
-        }
 
         if (isJumpPressed && !flying && !itsAtrap)
         {
@@ -111,53 +110,53 @@ public class PlayerMovements : MonoBehaviour
 
     IEnumerator BeepBeep()
     {
-        //Debug.Log("beepBeep начинается");
+        Debug.Log("beepBeep начинается");
         _beep = true;
         int _time = 0;
-        while (beepDown)
+        while (beepDown && _time <= 150)
         {
             _time += 1;
             yield return new WaitForSeconds(0.01f);
         }
-        if (_time < 40 || _time > 100)
+        if (_time < 40 || _time > 150)
         {
-            //Debug.Log("time break 1: " + _time);
+            Debug.Log("beepBeep time break 1: " + _time);
             _beep = false;
             yield break;
         }
-        //Debug.Log("beepBeep продолжается 1");
+        Debug.Log("beepBeep продолжается 1");
         _time = 0;
-        while (!beepDown)
+        while (!beepDown && _time <= 60)
         {
             _time += 1;
             yield return new WaitForSeconds(0.01f);
         }
-        if (_time < 5 || _time > 40)
+        if (_time < 5 || _time > 60)
         {
-            //Debug.Log("time break 2: " + _time);
+            Debug.Log("beepBeep time break 2: " + _time);
             _beep = false;
             yield break;
         }
-        //Debug.Log("beepBeep продолжается 2");
+        Debug.Log("beepBeep продолжается 2");
         _time = 0;
-        while (beepDown)
+        while (beepDown && _time <= 150)
         {
             _time += 1;
             yield return new WaitForSeconds(0.01f);
         }
-        if (_time < 40 || _time > 100)
+        if (_time < 40 || _time > 150)
         {
-            //Debug.Log("time break 3: " + _time);
+            Debug.Log("beepBeep time break 3: " + _time);
             _beep = false;
             yield break;
         }
         beepBeep = true;
-        //Debug.Log("beepBeep успешно");
+        Debug.Log("beepBeep успешно");
         yield return new WaitForSeconds(1f);
         if (beepBeep)
         {
             beepBeep = false;
-            //Debug.Log("beepBeep 2: " + beepBeep);
+            Debug.Log("beepBeep 2: " + beepBeep);
         }
         _beep = false;
     }

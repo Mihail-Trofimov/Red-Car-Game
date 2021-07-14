@@ -75,6 +75,7 @@
     <Compile Include="Assets\MyAsset\Scripts\TetrisSphere.cs" />
     <Compile Include="Assets\MyAsset\Scripts\SpawnBonus.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Pushpin.cs" />
+    <Compile Include="Assets\MyAsset\Scripts\EndGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
