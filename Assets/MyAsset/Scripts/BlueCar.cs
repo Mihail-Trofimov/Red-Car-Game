@@ -15,9 +15,14 @@ public class BlueCar : MonoBehaviour
     private int currentWP;
     private Vector3 _target;
     private float _speed;
+    Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+        animator.SetBool("isAttack", false);
+        animator.SetBool("isDead", false);
+
         _loopWPS = new Transform[_loopWPSObj.childCount];
         for (int i = 0; i < _loopWPS.Length; i++)
         {
@@ -28,25 +33,37 @@ public class BlueCar : MonoBehaviour
         _enemy = GetComponent<NavMeshAgent>();
         _target = _loopWPS[currentWP].position;
         _rb = GetComponent<Rigidbody>();
-        _speed = 8f;
+        _speed = 6f;
     }
 
     void FixedUpdate()
     {
-        if (Vector3.Distance(transform.position, _player.transform.position) >= 30f && !stop && !_enemy.hasPath)
+        if (Vector3.Distance(transform.position, _player.transform.position) >= 30f && !stop)
         {
-            _enemy.speed = 8f;
-            currentWP += 1;
-            if (currentWP >= _loopWPS.Length)
-            {
-                currentWP = 0;
-            }
+            animator.SetBool("isAttack", false);
+            animator.SetBool("isDead", false);
+            _enemy.speed = _speed;
             _target = _loopWPS[currentWP].position;
+            if (!_enemy.hasPath)
+            {
+                currentWP += 1;
+                if (currentWP >= _loopWPS.Length)
+                {
+                    currentWP = 0;
+                }
+            }
         }
         else if(Vector3.Distance(transform.position, _player.transform.position) < 30f && !stop)
         {
+            animator.SetBool("isAttack", true);
+            animator.SetBool("isDead", false);
             _enemy.speed = _speed + 30f / Vector3.Distance(transform.position, _player.transform.position);
             _target = _player.transform.position;
+        }
+        else if (stop)
+        {
+            animator.SetBool("isDead", true);
+            _enemy.speed = 0f;
         }
         _enemy.SetDestination(_target);
     }
@@ -66,7 +83,6 @@ public class BlueCar : MonoBehaviour
     IEnumerator Trap()
     {
         stop = true;
-        _enemy.speed = 0f;
         yield return new WaitForSeconds(6f);
         stop = false;
     }

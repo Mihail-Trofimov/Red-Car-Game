@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4305,6 +4305,10 @@ PrefabInstance:
       propertyPath: _loopWPSObj
       value: 
       objectReference: {fileID: 2120851680}
+    - target: {fileID: 90635052968246878, guid: 3738595d995fe5740925a590b595e1be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 507499487081733240, guid: 3738595d995fe5740925a590b595e1be, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -4316,6 +4320,10 @@ PrefabInstance:
     - target: {fileID: 507499487081733240, guid: 3738595d995fe5740925a590b595e1be, type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770690318683367750, guid: 3738595d995fe5740925a590b595e1be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6876970501475101717, guid: 3738595d995fe5740925a590b595e1be, type: 3}
       propertyPath: m_Mass
@@ -4344,6 +4352,10 @@ PrefabInstance:
     - target: {fileID: 7981254479324492922, guid: 3738595d995fe5740925a590b595e1be, type: 3}
       propertyPath: TargetDistance
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252827961496191822, guid: 3738595d995fe5740925a590b595e1be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8314678339551757224, guid: 3738595d995fe5740925a590b595e1be, type: 3}
       propertyPath: m_RootOrder
@@ -9444,6 +9456,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 507499487081733240, guid: 3738595d995fe5740925a590b595e1be, type: 3}
   m_PrefabInstance: {fileID: 642583083}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1337548499
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337548498}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4f883df5318e67d4c8047a9ab05f7c7e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!195 &1337548502
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -9458,7 +9489,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 40
   m_AngularSpeed: 120
-  m_StoppingDistance: 3
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
