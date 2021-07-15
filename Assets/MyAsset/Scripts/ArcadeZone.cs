@@ -9,14 +9,23 @@ public class ArcadeZone : MonoBehaviour
     [SerializeField] private Transform PointExit;
     [SerializeField] private GameObject PrefabBonus;
     [SerializeField] private Transform[] PointsBonus;
+    [SerializeField] private GameObject PrefabHeal;
+    [SerializeField] private Transform[] PointsHeal;
     private Rigidbody _plRb;
-
+    Stack<GameObject> _bonus;
     void Start()
     {
+        _bonus = new Stack<GameObject>();
         _plRb = Player.GetComponent<Rigidbody>();
         for (int i = 0; i < PointsBonus.Length; i++)
         {
-            Instantiate(PrefabBonus, PointsBonus[i].position, PointsBonus[i].rotation);
+            GameObject _obj = Instantiate(PrefabBonus, PointsBonus[i].position, PointsBonus[i].rotation);
+            _bonus.Push(_obj);
+        }
+        for (int i = 0; i < PointsHeal.Length; i++)
+        {
+            GameObject _obj = Instantiate(PrefabHeal, PointsHeal[i].position, PointsHeal[i].rotation);
+            _bonus.Push(_obj);
         }
         _plRb.constraints = RigidbodyConstraints.FreezePosition;
         _plRb.freezeRotation = true;
@@ -28,6 +37,13 @@ public class ArcadeZone : MonoBehaviour
 
     void End()
     {
+        foreach (GameObject _obj in _bonus)
+        {
+            if (_obj != null)
+            {
+                Destroy(_obj);
+            }
+        }
         _plRb.constraints = RigidbodyConstraints.FreezePosition;
         _plRb.freezeRotation = true;
         Player.transform.position = PointExit.position;

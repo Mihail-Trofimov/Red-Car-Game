@@ -61,18 +61,24 @@
     <Compile Include="Assets\MyAsset\Scripts\PlayerMovements.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Cannon.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Bonus.cs" />
+    <Compile Include="Assets\MyAsset\Scripts\Bulldozer.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Truck.cs" />
     <Compile Include="Assets\MyAsset\Scripts\ArcadeZone.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Heal.cs" />
     <Compile Include="Assets\MyAsset\Scripts\BlueCar.cs" />
     <Compile Include="Assets\MyAsset\Scripts\EasterCakes.cs" />
     <Compile Include="Assets\MyAsset\Scripts\EnemySpawner.cs" />
+    <Compile Include="Assets\MyAsset\Scripts\Zone2Green.cs" />
     <Compile Include="Assets\MyAsset\Scripts\CannonBall.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Mound.cs" />
     <Compile Include="Assets\VehicleSystemFree\Scenes\Script\DestroyObjectFree.cs" />
+    <Compile Include="Assets\MyAsset\Scripts\Zone1End.cs" />
+    <Compile Include="Assets\MyAsset\Scripts\Zone2End.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Excavator.cs" />
     <Compile Include="Assets\MyAsset\Scripts\TetrisSphere.cs" />
     <Compile Include="Assets\MyAsset\Scripts\SpawnBonus.cs" />
+    <Compile Include="Assets\MyAsset\Scripts\Zone2Blue.cs" />
+    <Compile Include="Assets\MyAsset\Scripts\EndGame.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Pushpin.cs" />
   </ItemGroup>
   <ItemGroup>

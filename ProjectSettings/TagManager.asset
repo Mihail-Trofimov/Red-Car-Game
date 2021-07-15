@@ -13,6 +13,8 @@ TagManager:
   - Heal
   - Wall
   - Truck
+  - Zone2BlueBox
+  - Zone2GreenBox
   layers:
   - Default
   - TransparentFX
