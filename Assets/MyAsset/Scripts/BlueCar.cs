@@ -56,14 +56,12 @@ public class BlueCar : MonoBehaviour
         stop = true;
         yield return new WaitForSeconds(7f);
         stop = false;
-        yield return null;
     }
     IEnumerator NitroIE()
     {
         _speed += 20f;
         yield return new WaitForSeconds(8f);
         _speed -= 20f;
-        yield return null;
     }
     IEnumerator Trap()
     {
@@ -71,7 +69,6 @@ public class BlueCar : MonoBehaviour
         _enemy.speed = 0f;
         yield return new WaitForSeconds(6f);
         stop = false;
-        yield return null;
     }
 
     void OnTriggerEnter(Collider other)
