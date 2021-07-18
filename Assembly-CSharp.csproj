@@ -62,12 +62,14 @@
     <Compile Include="Assets\MyAsset\Scripts\Cannon.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Bonus.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Bulldozer.cs" />
+    <Compile Include="Assets\MyAsset\Scripts\MainMenu.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Truck.cs" />
     <Compile Include="Assets\MyAsset\Scripts\ArcadeZone.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Heal.cs" />
     <Compile Include="Assets\MyAsset\Scripts\BlueCar.cs" />
     <Compile Include="Assets\MyAsset\Scripts\EasterCakes.cs" />
     <Compile Include="Assets\MyAsset\Scripts\EnemySpawner.cs" />
+    <Compile Include="Assets\MyAsset\Scripts\ButtonAnim.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Zone2Green.cs" />
     <Compile Include="Assets\MyAsset\Scripts\CannonBall.cs" />
     <Compile Include="Assets\MyAsset\Scripts\Mound.cs" />
