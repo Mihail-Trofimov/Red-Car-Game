@@ -17,14 +17,8 @@ public class Heal : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Enemy")
         {
-            Debug.Log("HEAL PLAYER");
-            DestroyHeal();
-        }
-        else if (other.tag == "Enemy")
-        {
-            Debug.Log("HEAL ENEMY");
             DestroyHeal();
         }
         else if (other.tag == "CannonBall")

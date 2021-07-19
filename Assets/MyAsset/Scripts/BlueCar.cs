@@ -86,7 +86,6 @@ public class BlueCar : MonoBehaviour
         yield return new WaitForSeconds(6f);
         stop = false;
     }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -100,10 +99,16 @@ public class BlueCar : MonoBehaviour
         else if (other.tag == "Bonus")
         {
             StartCoroutine(NitroIE());
-            Debug.Log("Enemy nitro");
+            Destroy(other.gameObject);
         }
         else if (other.tag == "Pushpin")
         {
+            Destroy(other.gameObject);
+            StartCoroutine(Trap());
+        }
+        else if (other.tag == "CannonBall")
+        {
+            Destroy(other.gameObject);
             StartCoroutine(Trap());
         }
     }

@@ -4,31 +4,13 @@ using UnityEngine;
 
 public class Pushpin : MonoBehaviour
 {
-    GameObject _pushpin;
-    void Start()
-    {
-        _pushpin = gameObject;
-    }
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
-        {
-            DestroyPushpin();
-        }
-        else if (other.tag == "Enemy")
-        {
-            Debug.Log("Pushpin Enemy");
-            DestroyPushpin();
-        }
-        else if (other.tag == "CannonBall")
+        if (other.tag == "CannonBall")
         {
             Destroy(other.gameObject);
-            DestroyPushpin();
+            Destroy(gameObject);
+            Destroy(this);
         }
-    }
-    void DestroyPushpin()
-    {
-        Destroy(_pushpin);
-        Destroy(this);
     }
 }

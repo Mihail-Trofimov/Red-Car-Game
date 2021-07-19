@@ -10,10 +10,10 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private WheelCollider[] whellCols;
     [SerializeField] private Transform[] whellMeshs;
 
-    [SerializeField] private float nitro = 100;
-    [SerializeField] public int plHP = 5;
-
+    public int plHP = 5;
+    public float nitro = 100;
     public bool beepBeep;
+
     private bool _beep;
     private bool beepDown;
     private bool isNitroPressed;
@@ -22,8 +22,20 @@ public class PlayerMovements : MonoBehaviour
     private bool itsAtrap;
     private bool isStops;
 
+    private bool inBonus;
+    private bool inHeal;
+    private bool inPushpin;
+    private bool inEnemy;
+    private bool inCannonBall;
+
     void Start()
     {
+        inBonus = false;
+        inHeal = false;
+        inPushpin = false;
+        inEnemy = false;
+        inCannonBall = false;
+
         _beep = false;
         beepBeep = false;
         beepDown = false;
@@ -32,7 +44,7 @@ public class PlayerMovements : MonoBehaviour
         flying = false;
         itsAtrap = false;
         _rb = GetComponent<Rigidbody>();
-        
+
     }
     void Update()
     {
@@ -59,12 +71,11 @@ public class PlayerMovements : MonoBehaviour
         }
     }
 
+
+
+
     void FixedUpdate()
     {
-        //Debug.Log("HP " + plHP + "\nnitro " + nitro);
-        //Debug.Log("motorTorque " + whellCols[0].motorTorque + " nitro" + nitro);
-        //Debug.Log("_rb.velocity.magnitude " + _rb.velocity.magnitude + " nitro" + nitro);
-
         whellCols[0].steerAngle = 30f * Input.GetAxis("Horizontal");
         whellCols[1].steerAngle = 30f * Input.GetAxis("Horizontal");
 
@@ -92,10 +103,10 @@ public class PlayerMovements : MonoBehaviour
         {
             for (int i = 0; i < whellCols.Length; i++)
             {
-                    isStops = false;
-                    whellCols[i].brakeTorque = 0;
-                    whellCols[i].motorTorque = 50f * Input.GetAxis("Vertical") * Time.deltaTime;
-                    _rb.AddForce(transform.forward * 1000f * Time.deltaTime * Input.GetAxis("Vertical"));
+                isStops = false;
+                whellCols[i].brakeTorque = 0;
+                whellCols[i].motorTorque = 50f * Input.GetAxis("Vertical") * Time.deltaTime;
+                _rb.AddForce(transform.forward * 1000f * Time.deltaTime * Input.GetAxis("Vertical"));
             }
         }
         else
@@ -107,7 +118,6 @@ public class PlayerMovements : MonoBehaviour
             }
         }
     }
-
     IEnumerator BeepBeep()
     {
         Debug.Log("beepBeep начинается");
@@ -181,37 +191,67 @@ public class PlayerMovements : MonoBehaviour
         flying = false;
         itsAtrap = false;
     }
+    IEnumerator boolBonus()
+    {
+        yield return new WaitForFixedUpdate();
+        inBonus = false;
+    }
+    IEnumerator boolHeal()
+    {
+        yield return new WaitForFixedUpdate();
+        inHeal = false;
+    }
+    IEnumerator boolPushpin()
+    {
+        yield return new WaitForFixedUpdate();
+        inPushpin = false;
+    }
+    IEnumerator boolEnemy()
+    {
+        yield return new WaitForFixedUpdate();
+        inEnemy = false;
+    }
+    IEnumerator boolCannonBall()
+    {
+        yield return new WaitForFixedUpdate();
+        inCannonBall = false;
+    }
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Bonus")
+        if (other.tag == "Bonus" && !inBonus)
         {
-            Debug.Log("BONUS Player take " + nitro);
+            inBonus = true;
+            Destroy(other.gameObject);
             nitro += 200;
+            StartCoroutine(boolBonus());
         }
-        else if (other.tag == "Heal")
+        else if (other.tag == "Heal" && !inHeal)
         {
-            //Debug.Log("Heal player take");
-            plHP += 1;
-            Debug.Log("HP " + plHP);
+            inHeal = true;
+            Destroy(other.gameObject);
+            plHP++;
+            StartCoroutine(boolHeal());
         }
-        else if (other.tag == "Pushpin")
+        else if (other.tag == "Pushpin" && !inPushpin)
         {
+            inPushpin = true;
+            Destroy(other.gameObject);
             StartCoroutine(Trap());
+            StartCoroutine(boolPushpin());
         }
-        if (other.tag == "Enemy")
+        if (other.tag == "Enemy" && !inEnemy)
         {
-            Debug.Log("Enemy atack player");
-            //plHP -= 1;
+            inEnemy = true;
             _rb.GetComponent<Rigidbody>().AddForce(Vector3.up * 70f);
             _rb.GetComponent<Rigidbody>().AddForce(Vector3.MoveTowards(transform.position, other.transform.position, 20f) * -100f);
-
-            Debug.Log("HP " + plHP);
+            StartCoroutine(boolEnemy());
         }
-        if (other.tag == "CannonBall")
+        if (other.tag == "CannonBall" && !inCannonBall)
         {
-            Debug.Log("Cannon atack player HP " + plHP);
-            plHP -= 1;
+            inCannonBall = true;
             Destroy(other.gameObject);
+            plHP--;
+            StartCoroutine(boolCannonBall());
         } 
         //if (other.tag == "Level")
         //{
